@@ -3,8 +3,6 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -146,7 +144,8 @@ export default function CheckoutPage() {
 
   // Check for successful payment return
   useEffect(() => {
-    if (stripe && window.location.search.includes('payment_intent_client_secret')) {
+    // Only check URL parameters on component mount
+    if (window.location.search.includes('payment_intent_client_secret')) {
       const searchParams = new URLSearchParams(window.location.search);
       const clientSecret = searchParams.get('payment_intent_client_secret');
       const paymentIntentId = searchParams.get('payment_intent');
@@ -160,8 +159,6 @@ export default function CheckoutPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
-      <Navbar />
-      
       <main className="flex-grow py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -298,8 +295,6 @@ export default function CheckoutPage() {
           )}
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }

@@ -8,7 +8,7 @@ import Stripe from "stripe";
 // Initialize Stripe
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY || "sk_test_dummy";
 const stripe = new Stripe(stripeSecretKey, {
-  apiVersion: "2023-10-16",
+  apiVersion: "2025-02-24.acacia", // Updated to latest version
 });
 
 // Middleware to check admin status
@@ -280,8 +280,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       const paymentIntent = await stripe.paymentIntents.create({
-        amount: Math.round(amount * 100), // Convert to cents
-        currency: "usd",
+        amount: Math.round(amount * 100), // Convert to paise
+        currency: "inr", // Indian Rupees
         metadata: {
           userId: req.user.id.toString()
         }
