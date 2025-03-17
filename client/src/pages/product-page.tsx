@@ -87,7 +87,7 @@ export default function ProductPage() {
             
             <div className="mt-3">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-3xl text-gray-900">${product.price.toFixed(2)}</p>
+              <p className="text-3xl text-gray-900">₹{product.price.toFixed(2)}</p>
             </div>
 
             <div className="mt-6">

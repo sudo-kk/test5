@@ -68,10 +68,10 @@ export default function CartPage() {
                                 <a className="hover:text-primary">{item.product.name}</a>
                               </Link>
                             </h3>
-                            <p className="ml-4">${(item.product.price * item.quantity).toFixed(2)}</p>
+                            <p className="ml-4">₹{(item.product.price * item.quantity).toFixed(2)}</p>
                           </div>
                           <p className="mt-1 text-sm text-gray-500">
-                            ${item.product.price.toFixed(2)} each
+                            ₹{item.product.price.toFixed(2)} each
                           </p>
                         </div>
                         <div className="flex-1 flex items-end justify-between text-sm">
@@ -137,25 +137,25 @@ export default function CartPage() {
                 <dl className="mt-6 space-y-4">
                   <div className="flex items-center justify-between">
                     <dt className="text-sm text-gray-600">Subtotal</dt>
-                    <dd className="text-sm font-medium text-gray-900">${cartTotal.toFixed(2)}</dd>
+                    <dd className="text-sm font-medium text-gray-900">₹{cartTotal.toFixed(2)}</dd>
                   </div>
                   <div className="flex items-center justify-between">
                     <dt className="text-sm text-gray-600">Shipping</dt>
                     <dd className="text-sm font-medium text-gray-900">
-                      {cartTotal >= 100 ? 'Free' : '$10.00'}
+                      {cartTotal >= 5000 ? 'Free' : '₹500.00'}
                     </dd>
                   </div>
                   <div className="flex items-center justify-between">
                     <dt className="text-sm text-gray-600">Tax</dt>
                     <dd className="text-sm font-medium text-gray-900">
-                      ${(cartTotal * 0.1).toFixed(2)}
+                      ₹{(cartTotal * 0.18).toFixed(2)}
                     </dd>
                   </div>
                   <Separator />
                   <div className="flex items-center justify-between">
                     <dt className="text-base font-medium text-gray-900">Order total</dt>
                     <dd className="text-base font-medium text-gray-900">
-                      ${(cartTotal + (cartTotal >= 100 ? 0 : 10) + cartTotal * 0.1).toFixed(2)}
+                      ₹{(cartTotal + (cartTotal >= 5000 ? 0 : 500) + cartTotal * 0.18).toFixed(2)}
                     </dd>
                   </div>
                 </dl>
