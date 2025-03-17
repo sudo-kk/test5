@@ -10,8 +10,6 @@ import { useAuth } from "@/hooks/use-auth";
 import { Loader2 } from "lucide-react";
 import { useLocation } from "wouter";
 import { useEffect } from "react";
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
 
 const loginSchema = z.object({
   username: z.string().min(3, {
@@ -90,8 +88,6 @@ export default function AuthPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
-      <Navbar />
-      
       <div className="flex-grow flex items-center justify-center px-4 py-12">
         <div className="max-w-4xl w-full grid md:grid-cols-2 gap-8">
           <div className="md:col-span-1 bg-gradient-to-br from-primary to-blue-700 rounded-lg p-8 flex flex-col justify-center text-white hidden md:flex">
@@ -256,8 +252,6 @@ export default function AuthPage() {
           </div>
         </div>
       </div>
-      
-      <Footer />
     </div>
   );
 }

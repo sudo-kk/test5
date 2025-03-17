@@ -1,7 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "wouter";
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/cart-context";
 import { Product } from "@shared/schema";
@@ -50,11 +48,9 @@ export default function ProductPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex flex-col bg-slate-50">
-        <Navbar />
         <div className="flex-grow flex justify-center items-center">
           <Loader2 className="h-12 w-12 animate-spin text-primary" />
         </div>
-        <Footer />
       </div>
     );
   }
@@ -62,12 +58,10 @@ export default function ProductPage() {
   if (error || !product) {
     return (
       <div className="min-h-screen flex flex-col bg-slate-50">
-        <Navbar />
         <div className="flex-grow flex justify-center items-center flex-col">
           <h2 className="text-2xl font-bold mb-4">Product Not Found</h2>
           <p className="text-gray-600">Sorry, the product you are looking for does not exist.</p>
         </div>
-        <Footer />
       </div>
     );
   }
