@@ -68,8 +68,6 @@ export default function ProductPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
-      <Navbar />
-      
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
           {/* Product image */}
@@ -165,8 +163,6 @@ export default function ProductPage() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -1,7 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "wouter";
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
 import ProductCard from "@/components/ui/product-card";
 import { Product, Category } from "@shared/schema";
 import { Loader2 } from "lucide-react";
@@ -22,19 +20,15 @@ export default function CategoryPage() {
   if (productsLoading || categoriesLoading) {
     return (
       <div className="min-h-screen flex flex-col bg-slate-50">
-        <Navbar />
         <div className="flex-grow flex justify-center items-center">
           <Loader2 className="h-12 w-12 animate-spin text-primary" />
         </div>
-        <Footer />
       </div>
     );
   }
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
-      <Navbar />
-      
       <main className="flex-grow">
         {/* Category Header */}
         <div className="bg-white">
@@ -70,8 +64,6 @@ export default function CategoryPage() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }
