@@ -1,5 +1,3 @@
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
 import { useCart } from "@/context/cart-context";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,19 +14,15 @@ export default function CartPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex flex-col bg-slate-50">
-        <Navbar />
         <div className="flex-grow flex justify-center items-center">
           <Loader2 className="h-12 w-12 animate-spin text-primary" />
         </div>
-        <Footer />
       </div>
     );
   }
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
-      <Navbar />
-      
       <main className="flex-grow py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">Shopping Cart</h1>
@@ -191,8 +185,6 @@ export default function CartPage() {
           )}
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }
