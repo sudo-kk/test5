@@ -7,7 +7,7 @@ const app = express();
 
 // Add CORS configuration
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://your-netlify-app.netlify.app'],
+  origin: true, // Allow all origins in development. In production, Railway will handle this.
   credentials: true
 }));
 
