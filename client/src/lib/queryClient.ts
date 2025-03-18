@@ -12,10 +12,8 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  // Use the Railway URL for production
-  const baseUrl = process.env.NODE_ENV === 'production' 
-    ? 'https://demo1234-production.up.railway.app' 
-    : '';
+  // Use the Railway URL from environment variable
+  const baseUrl = import.meta.env.VITE_API_URL || '';
   const fullUrl = `${baseUrl}${url}`;
   
   const res = await fetch(fullUrl, {
@@ -38,9 +36,7 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    const baseUrl = process.env.NODE_ENV === 'production' 
-      ? 'https://demo1234-production.up.railway.app' 
-      : '';
+    const baseUrl = import.meta.env.VITE_API_URL || '';
     const fullUrl = `${baseUrl}${queryKey[0]}`;
 
     const res = await fetch(fullUrl, {
