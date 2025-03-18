@@ -30,10 +30,12 @@ process.on('uncaughtException', (error) => {
 
 const app = express();
 
-// Add CORS configuration
+// Add CORS configuration with specific origin
 app.use(cors({
-  origin: true, // Allow all origins in development. In production, Railway will handle this.
-  credentials: true
+  origin: ['https://demo1234.netlify.app', 'http://localhost:3000'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }));
 
 app.use(express.json());
